@@ -6,9 +6,9 @@ import { Input } from "@/components/ui/input"
 interface DeleteFormProps {
   data: any
   onSubmit: (data: any) => void
-  closeDrawer: () => void  // Add closeDrawer prop
+  closeSheet: () => void  // Add closeSheet prop
 }
-const DeleteForm: React.FC<DeleteFormProps> = ({ data, onSubmit,  closeDrawer }) => {
+const DeleteForm: React.FC<DeleteFormProps> = ({ data, onSubmit,  closeSheet }) => {
   const [name, setName] = useState(data?.name || "")
   const [email, setEmail] = useState(data?.email || "")
   const [dept, setDept] = useState(data?.dept || "")
@@ -34,8 +34,8 @@ const handleSubmit = (e: React.FormEvent) => {
 
   
      
-    // Call the parent function to close the drawer
-    closeDrawer();
+    // Call the parent function to close the Sheet
+    closeSheet();
   }
 
   return (

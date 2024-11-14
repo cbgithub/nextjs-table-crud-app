@@ -33,7 +33,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 import { Input } from "@/components/ui/input"
-import CrudDrawer from "./CrudDrawer"
+import CrudSheet from "./CrudSheet"
 
 
 interface DataTableProps<TData, TValue> {
@@ -57,7 +57,7 @@ export function DataTable<TData, TValue>({
   )
   const [columnVisibility, setColumnVisibility] =
   React.useState<VisibilityState>({})
-  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false)
+  const [isSheetOpen, setIsSheetOpen] = React.useState(false)
   const [currentOperation, setCurrentOperation] = React.useState<'Add' | 'Edit' | 'Delete' | ''>('')
   const [selectedData, setSelectedData] = React.useState<TData | null>(null)
 
@@ -78,14 +78,14 @@ export function DataTable<TData, TValue>({
     },
   })
 
-  const openDrawer = (operation: 'Add' | 'Edit' | 'Delete', data: TData | null = null) => {
+  const openSheet = (operation: 'Add' | 'Edit' | 'Delete', data: TData | null = null) => {
     setCurrentOperation(operation)
     setSelectedData(data)
-    setIsDrawerOpen(true)
+    setIsSheetOpen(true)
   }
 
-  const closeDrawer = () => {
-    setIsDrawerOpen(false)
+  const closeSheet = () => {
+    setIsSheetOpen(false)
     setCurrentOperation('')
     setSelectedData(null)
     refreshData()
@@ -131,7 +131,7 @@ export function DataTable<TData, TValue>({
           </DropdownMenuContent>
      </DropdownMenu>
      <br></br>
-     <Button onClick={() => openDrawer('Add')}>Add</Button>
+     <Button onClick={() => openSheet('Add')}>Add</Button>
   </div>
   <div className="overflow-x-auto">
     <Table className="min-w-full bg-white border border-gray-300">
@@ -167,8 +167,8 @@ export function DataTable<TData, TValue>({
 
                 ))}
                   <TableCell>
-                    <Button onClick={() => openDrawer('Edit', row.original)}>Edit</Button>
-                    <Button variant="destructive" onClick={() => openDrawer('Delete', row.original)}>
+                    <Button onClick={() => openSheet('Edit', row.original)}>Edit</Button>
+                    <Button variant="destructive" onClick={() => openSheet('Delete', row.original)}>
                       Delete
                     </Button>
                   </TableCell>
@@ -184,10 +184,10 @@ export function DataTable<TData, TValue>({
         </TableBody>
       </Table>
     </div>
-     {/* CRUD Drawer */}
-     <CrudDrawer
-        open={isDrawerOpen}
-        onClose={closeDrawer}
+     {/* CRUD Sheet */}
+     <CrudSheet
+        open={isSheetOpen}
+        onClose={closeSheet}
         operation={currentOperation}
         data={selectedData}
       

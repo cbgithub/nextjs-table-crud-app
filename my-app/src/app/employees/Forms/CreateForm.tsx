@@ -5,9 +5,9 @@ import { Input } from "@/components/ui/input"
 
 interface CreateFormProps {
   onSubmit: (data: any) => void
-  closeDrawer: () => void  // Add closeDrawer prop
+  closeSheet: () => void  // Add closeSheet prop
 }
-const CreateForm: React.FC<CreateFormProps> = ({ onSubmit, closeDrawer }) => {
+const CreateForm: React.FC<CreateFormProps> = ({ onSubmit, closeSheet }) => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [dept, setDept] = useState("")
@@ -28,8 +28,8 @@ const handleSubmit = (e: React.FormEvent) => {
     // Store updated data back in localStorage
     localStorage.setItem("Emps", JSON.stringify(existingData));
      
-    // Call the parent function to close the drawer
-    closeDrawer();
+    // Call the parent function to close the Sheet
+    closeSheet();
   }
 
   return (

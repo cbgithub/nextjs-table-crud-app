@@ -6,9 +6,9 @@ import { Input } from "@/components/ui/input"
 interface EditFormProps {
   data: any
   onSubmit: (data: any) => void
-  closeDrawer: () => void  // Add closeDrawer prop
+  closeSheet: () => void  // Add closeSheet prop
 }
-const EditForm: React.FC<EditFormProps> = ({ data, onSubmit,  closeDrawer }) => {
+const EditForm: React.FC<EditFormProps> = ({ data, onSubmit,  closeSheet }) => {
   const [name, setName] = useState(data?.name || "")
   const [email, setEmail] = useState(data?.email || "")
   const [dept, setDept] = useState(data?.dept || "")
@@ -38,8 +38,8 @@ const handleSubmit = (e: React.FormEvent) => {
 
   
      
-    // Call the parent function to close the drawer
-    closeDrawer();
+    // Call the parent function to close the Sheet
+    closeSheet();
   }
 
   return (

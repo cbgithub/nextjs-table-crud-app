@@ -1,12 +1,20 @@
 import React from "react"
-import { Drawer, DrawerOverlay, DrawerContent, DrawerHeader, DrawerTitle, DrawerFooter } from "@/components/ui/drawer"
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetOverlay,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import CreateForm from "./Forms/CreateForm"
 import EditForm from "./Forms/EditForm"
 import DeleteForm from "./Forms/DeleteForm"
 
 
-interface CrudDrawerProps {
+interface CrudSheetProps {
   open: boolean
   onClose: () => void
   operation: "Add" | "Edit" | "Delete" | ""
@@ -14,34 +22,32 @@ interface CrudDrawerProps {
  
 }
 
-const CrudDrawer: React.FC<CrudDrawerProps> = ({ open, onClose, operation, data }) => {
+const CrudSheet: React.FC<CrudSheetProps> = ({ open, onClose, operation, data }) => {
     function refreshData() {
         throw new Error("Function not implemented.")
     }
 
   return (
-    <Drawer open={open} onClose={() => { 
-        onClose(); 
-      }}>
-      <DrawerOverlay />
-      <DrawerContent className="fixed inset-y-0 left-0 w-full md:w-2/3 lg:w-1/2 xl:w-1/3 bg-white p-6 shadow-lg">
-      <DrawerHeader className="text-lg font-semibold">{operation} Item</DrawerHeader>
-        <DrawerTitle></DrawerTitle>
+    <Sheet open={open}   >
+      <SheetOverlay />
+      <SheetContent>
+      <SheetHeader className="text-lg font-semibold">{operation} Item</SheetHeader>
+        <SheetTitle></SheetTitle>
       
           {operation === "Add" && <CreateForm onSubmit={function (data: any): void {
                       throw new Error("Function not implemented.") 
-                  } } closeDrawer={()=> {onClose();
+                  } } closeSheet={()=> {onClose();
                 
                   }} />}
         {operation === "Edit" && <EditForm onSubmit={function (data: any): void {
                   throw new Error("Function not implemented.")
-              } } closeDrawer={() => {
+              } } closeSheet={() => {
                   onClose()
 
               } } data={data} />}
         {operation === "Delete" && <DeleteForm onSubmit={function (data: any): void {
                   throw new Error("Function not implemented.")
-              } } closeDrawer={() => {
+              } } closeSheet={() => {
                   onClose()
 
               } } data={data} />}
@@ -50,9 +56,9 @@ const CrudDrawer: React.FC<CrudDrawerProps> = ({ open, onClose, operation, data 
            
         
  
-      </DrawerContent>
-    </Drawer>
+      </SheetContent>
+    </Sheet>
   )
 }
 
-export default CrudDrawer
+export default CrudSheet
