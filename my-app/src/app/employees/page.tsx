@@ -47,7 +47,9 @@ function getData() {
   }, []);
 
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto py-10 px-4 md:px-8 lg:px-16">
+    <h1 className="text-2xl font-bold mb-6 text-center">Employee Table</h1>
+
    
     <DataTable columns={columns} data={emps} refreshData={refreshData} />
   </div>

@@ -40,8 +40,11 @@ const handleSubmit = (e: React.FormEvent) => {
 
   return (
     <div>
-        <p>Are you sure you want to delete the following item?</p>
-     <div className="mt-4">
+        <strong>Are you sure you want to delete the following item?</strong>
+        <br>
+        </br>
+      <div className="flex flex-col sm:flex-row gap-4">
+     <div>
         <strong>ID:</strong> {data.id}
       </div>
       <div>
@@ -52,7 +55,7 @@ const handleSubmit = (e: React.FormEvent) => {
       </div>
       <Button variant="destructive" onClick={handleSubmit} className="absolute bottom-4 right-20">Save Changes</Button>
   
-   
+   </div>
     </div>
   );
 }

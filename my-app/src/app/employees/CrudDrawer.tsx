@@ -24,8 +24,8 @@ const CrudDrawer: React.FC<CrudDrawerProps> = ({ open, onClose, operation, data 
         onClose(); 
       }}>
       <DrawerOverlay />
-      <DrawerContent className="fixed inset-y-0 left-0 w-100 bg-white p-6 shadow-lg">
-        <DrawerHeader>{operation} Item</DrawerHeader>
+      <DrawerContent className="fixed inset-y-0 left-0 w-full md:w-2/3 lg:w-1/2 xl:w-1/3 bg-white p-6 shadow-lg">
+      <DrawerHeader className="text-lg font-semibold">{operation} Item</DrawerHeader>
         <DrawerTitle></DrawerTitle>
       
           {operation === "Add" && <CreateForm onSubmit={function (data: any): void {

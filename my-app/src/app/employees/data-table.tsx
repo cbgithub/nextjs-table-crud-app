@@ -133,8 +133,8 @@ export function DataTable<TData, TValue>({
      <br></br>
      <Button onClick={() => openDrawer('Add')}>Add</Button>
   </div>
-    <div className="rounded-md border">
-      <Table>
+  <div className="overflow-x-auto">
+    <Table className="min-w-full bg-white border border-gray-300">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>

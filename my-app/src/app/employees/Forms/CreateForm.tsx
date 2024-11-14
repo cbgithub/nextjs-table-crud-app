@@ -36,21 +36,29 @@ const handleSubmit = (e: React.FormEvent) => {
     <div>
   
       <form onSubmit={handleSubmit}>
-      <div>
-        <label>Name</label>
+      <div className="flex flex-col sm:flex-row gap-4">
+        <label className="w-full sm:w-1/2">Name
         <Input value={name} onChange={(e) => setName(e.target.value)} required />
+        </label>
+        
       </div>
       <div>
-        <label>Email</label>
+        <label className="w-full sm:w-1/2">Email
         <Input value={email} onChange={(e) => setEmail(e.target.value)} required />
+        </label>
+    
       </div>
       <div>
-      <label>Dept</label>
-        <Input value={dept} onChange={(e) => setDept(e.target.value)} required />
+      <div className="flex flex-col sm:flex-row gap-4">
+      <label className="w-full sm:w-1/2">Dept
+      <Input value={dept} onChange={(e) => setDept(e.target.value)} required /></label>
+
       </div>
       <div>
-        <label>Salary</label>
-        <Input value={salary} onChange={(e) => setSalary(e.target.value)} required />
+        <label className="w-full sm:w-1/2">Salary
+        <Input value={salary} onChange={(e) => setSalary(e.target.value)} required /></label>
+   
+      </div>
       </div>
       <Button type="submit" variant="destructive" className="absolute bottom-4 right-20">Save Changes</Button>
     </form>
