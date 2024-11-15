@@ -1,7 +1,9 @@
 "use client";
 import React from "react";
+import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 import { Employee, Payment, columns } from "./columns"
 import { DataTable } from "./data-table"
+import Navbar from '@/components/ui/Navbar';
 
 function getData() {
  
@@ -47,16 +49,16 @@ function getData() {
   }, []);
 
   return (
-    <div className="container mx-auto py-10 px-4 md:px-8 lg:px-16">
-    <h1 className="text-2xl font-bold mb-6 text-center">Employee Table</h1>
+    <><Navbar /><div className="container mx-auto py-10 px-4 md:px-8 lg:px-16">
+      <h1 className="text-2xl font-bold mb-6 text-center">Employee Table</h1>
 
-   
-    <DataTable columns={columns} data={emps} refreshData={refreshData} />
-  </div>
+
+      <DataTable columns={columns} data={emps} refreshData={refreshData} />
+    </div></>
   );
  
 }
 
-export default getData;
+export default withPageAuthRequired(getData);
 
 
