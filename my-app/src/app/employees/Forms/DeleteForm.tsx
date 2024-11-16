@@ -53,7 +53,7 @@ const handleSubmit = (e: React.FormEvent) => {
       <div>
         <strong>Email:</strong> {data.email}
       </div>
-      <Button variant="destructive" onClick={handleSubmit} className="absolute bottom-4 right-20">Save Changes</Button>
+      <Button variant="success" onClick={handleSubmit} className="absolute bottom-4 right-20">Save Changes</Button>
   
    </div>
     </div>

@@ -5,6 +5,7 @@ import "./globals.css";
 
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { Toaster } from '@/components/ui/toaster';
+import Navbar from "@/components/ui/Navbar";
 
 
 const geistSans = localFont({
@@ -33,7 +34,9 @@ export default function RootLayout({
   return (
     <html lang="en">
     <UserProvider>
-      <body>{children}</body>
+      <body>
+      <Navbar />
+        {children}</body>
 
     </UserProvider>
     </html>
