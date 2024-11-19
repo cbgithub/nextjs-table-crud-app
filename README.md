@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Overview 
+This project is a Next.js application demonstrating table CRUD operations with filtering and sorting functionality. It integrates Auth0 for user authentication and authorization and uses localStorage for persistent data management. The app is fully responsive and highlights simple scenarios for managing and displaying data.
+
+## Features
+ - Crud Operations : Create, read, update, and delete table entries.
+ - Filtering & Sorting: Organize large datasets
+ - Auth0 Integration: Secure authentication and role-based access control
+ - Persistent Storage: Data is stored in browser using localStorage
+ - Responsive Design: Mobile & Desktop
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js (>=16.0.0)
+- Auth0 account
+- Basic understanding of React and NextJs
+
+### Installation
+
+1. Clone the Repo
+```bash
+
+git clone https://github.com/cbgithub/nextjs-table-crud-app.git 
+```
+2. Navigate to the Project Directory
+
+```bash 
+cd my-app
+```
+
+3. Install Dependencies
+
+```bash 
+npm install
+```
+
+4. Set up .env.local with Auth0 credentials
+
+```bash 
+AUTH0_SECRET=
+AUTH0_BASE_URL=
+AUTH0_ISSUER_BASE_URL=
+AUTH0_CLIENT_ID=
+AUTH0_CLIENT_SECRET=
+```
+5. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/employees/page.tsx`. The page auto-updates as you edit the file.
+### Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Open the app in your browser at http://localhost:3000.
+- Log in via Auth0 to access CRUD functionality.
+- Interact with the table to add, edit, or delete entries.
+Changes are saved to localStorage, ensuring persistent data across sessions.
+- Use filters and sorting to efficiently organize table content.
 
-## Learn More
+### Folder Structure
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+src/app/
+|-- components/         # Reusable components
+|-- api/auth/[auth0]/   # Auth0 routes
+|-- employees/          # Employees table components
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
