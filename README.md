@@ -59,6 +59,11 @@ npm run dev
 Changes are saved to localStorage, ensuring persistent data across sessions.
 - Use filters and sorting to efficiently organize table content.
 
+### Demo
+![Home](images/Home.png)
+![Edit](images/Edit.png)
+
+
 ### Folder Structure
 
 ```bash
